@@ -29,7 +29,7 @@ function App() {
   ];
   return (
     <div>
-      <h2> ㅇㅅㅇㅁㅅㅁㅎㅅㅎ</h2>
+      <h2>Expenses</h2>
       <Expenses items={expenses} />
     </div>
   );
