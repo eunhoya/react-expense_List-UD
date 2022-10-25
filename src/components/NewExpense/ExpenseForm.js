@@ -34,17 +34,20 @@ const ExpenseForm = (props) => {
 	};
 	const submitHandler = (event) => {
 		event.preventDefault();
+		if ((enteredTitle, enteredAmount, enteredDate < 1)) {
+			alert('내용을 입력해주세요');
+		} else {
+			const expenseData = {
+				title: enteredTitle,
+				amount: enteredAmount,
+				date: new Date(enteredDate),
+			};
 
-		const expenseData = {
-			title: enteredTitle,
-			amount: enteredAmount,
-			date: new Date(enteredDate),
-		};
-
-		props.onSaveExpenseData(expenseData);
-		setEnteredTitle('');
-		setEnteredAmount('');
-		setEnteredDate('');
+			props.onSaveExpenseData(expenseData);
+			setEnteredTitle('');
+			setEnteredAmount('');
+			setEnteredDate('');
+		}
 	};
 	return (
 		<form onSubmit={submitHandler}>
@@ -63,7 +66,8 @@ const ExpenseForm = (props) => {
 					<input
 						type='number'
 						min='0.01'
-						step='0.01'
+						//step속성은 input 입력창의 숫자 간격을 설정
+						step='0.01' //소수점 2자리까지 입력 설정
 						value={enteredAmount}
 						onChange={amountChangeHandler}
 					/>
