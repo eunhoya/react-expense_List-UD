@@ -39,9 +39,11 @@ const ExpenseForm = (props) => {
 		// } else {
 		const expenseData = {
 			title: enteredTitle,
-			amount: enteredAmount,
+			amount: +enteredAmount,
 			date: new Date(enteredDate),
 		};
+		/*여러 값을 추가할 때 해당 값은 숫자가 아닌 문자열로 추가됨
+		단순히 숫자 변환을 실행하면 됩니다*/
 
 		props.onSaveExpenseData(expenseData);
 		setEnteredTitle('');
