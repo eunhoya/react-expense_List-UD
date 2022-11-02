@@ -34,20 +34,20 @@ const ExpenseForm = (props) => {
 	};
 	const submitHandler = (event) => {
 		event.preventDefault();
-		if ((enteredTitle, enteredAmount, enteredDate < 1)) {
-			alert('내용을 입력해주세요');
-		} else {
-			const expenseData = {
-				title: enteredTitle,
-				amount: enteredAmount,
-				date: new Date(enteredDate),
-			};
+		// if ((enteredTitle, enteredAmount, enteredDate < 1)) {
+		// 	alert('내용을 입력해주세요');
+		// } else {
+		const expenseData = {
+			title: enteredTitle,
+			amount: enteredAmount,
+			date: new Date(enteredDate),
+		};
 
-			props.onSaveExpenseData(expenseData);
-			setEnteredTitle('');
-			setEnteredAmount('');
-			setEnteredDate('');
-		}
+		props.onSaveExpenseData(expenseData);
+		setEnteredTitle('');
+		setEnteredAmount('');
+		setEnteredDate('');
+		// }
 	};
 	return (
 		<form onSubmit={submitHandler}>
@@ -86,6 +86,9 @@ const ExpenseForm = (props) => {
 			</div>
 
 			<div className='new-expense__actions'>
+				<button type='button' onClick={props.onCancel}>
+					Cancel
+				</button>
 				<button type='submit'>Add Expense</button>
 			</div>
 		</form>
